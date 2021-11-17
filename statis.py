@@ -11,7 +11,7 @@ for i in range(len(user_list)):
   user_list[i] = float(user_list[i])
 print("Sum = ", sum(user_list))
 print("Mod = ", statistics.mode(user_list))
-# Mod is the most occuring item in a list
+# mod is the most occuring item in a list
 print("Median = ", statistics.median(user_list))
 print("Mean = ", statistics.mean(user_list))
 print("Standard Deviation = ", statistics.stdev(user_list))
