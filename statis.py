@@ -1,19 +1,32 @@
-# Evaluate different statistical value from your command line.
+from statistics import mean, median, mode, stdev, variance
 
-import statistics
-input_string = input('Enter your value separated by space:'+"\n")
-print("\n")
-user_list = input_string.split()
-# print the list
-print('list: ', user_list)
-for i in range(len(user_list)):
-# convert items to float
-  user_list[i] = float(user_list[i])
-print("Sum = ", sum(user_list))
-print("Mod = ", statistics.mode(user_list))
-# mod is the most occuring item in a list
-print("Median = ", statistics.median(user_list))
-print("Mean = ", statistics.mean(user_list))
-print("Standard Deviation = ", statistics.stdev(user_list))
-print("Variance = ", statistics.variance(user_list))
+# Calculates mean, median, mode, standard deviation, and variance
+def statis(*nums):
+    print("Mean:", mean(nums))
+    print("Median:", median(nums))
+    print("Mode:", mode(nums))
+    print("Sum", sum(nums))
+    print("Stdev:", round(stdev(nums), 2))
+    print("Variance:", round(variance(nums), 2))
 
+
+# Reads in numbers from user and calculates statistics with some conditions
+def run():
+    while True:
+        nums = input("Enter numbers separated by comma: ").split(',')
+        if nums != [""]:
+            nums = [int(i) for i in nums]
+            statis(*nums)
+            cont = input("Continue? (y/n): ")
+            while cont != "y" and cont != "n":
+                print("Invalid input")
+                cont = input("Continue? (y/n): ")
+            if cont == "n":
+                print("Bye!")
+                break
+            elif cont == "y":
+                continue
+        else:
+            print("Please enter numbers!")
+
+run()
